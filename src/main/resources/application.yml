@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: bridge-microservice
+
+  datasource:
+    url: ${SUPABASE_DB_URL}
+    username: postgres
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+bridge:
+  api:
+    base-url: https://api.bridgeapi.io/v3
+    client-id: ${BRIDGE_CLIENT_ID}
+    client-secret: ${BRIDGE_CLIENT_SECRET}
+    version: "2025-01-01"
+
+logging:
+  level:
+    com.bridgeapi: DEBUG
+    org.springframework.web: INFO

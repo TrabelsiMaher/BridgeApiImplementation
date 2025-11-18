@@ -1,0 +1,8 @@
+target/
+.env
+.git/
+.gitignore
+*.md
+node_modules/
+.bolt/
+supabase/

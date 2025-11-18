@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  bridge-microservice:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=postgresql://postgres.jqicherasceexeaxbzxv:${DB_PASSWORD}@aws-0-eu-west-1.pooler.supabase.com:6543/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres.jqicherasceexeaxbzxv
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+      - BRIDGE_CLIENT_ID=${BRIDGE_CLIENT_ID}
+      - BRIDGE_CLIENT_SECRET=${BRIDGE_CLIENT_SECRET}
+      - BRIDGE_WEBHOOK_SECRET=${BRIDGE_WEBHOOK_SECRET}
+    env_file:
+      - .env
+    networks:
+      - bridge-network
+
+networks:
+  bridge-network:
+    driver: bridge
