@@ -1,0 +1,8 @@
+{
+  "name": "bridge-microservice",
+  "private": true,
+  "scripts": {
+    "build": "mvn clean package -DskipTests",
+    "test": "mvn test"
+  }
+}
